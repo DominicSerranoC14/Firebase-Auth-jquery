@@ -8,20 +8,22 @@ body {
 .login-form {
   display: flex;
   flex-direction: column;
-  border: solid .5rem black;
+  border: solid .2rem black;
+  text-align: center;
 }
 
 .main-page {
   display: flex;
   flex-direction: column;
   align-content: center;
+  border: solid .2rem black;
   text-align: center;
 }
 
 input, label {
   margin: .5rem;
   padding: 0 2rem;
-  width: 100px;
+  max-width: 200px;
 }
 
 .hidden {

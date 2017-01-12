@@ -16,12 +16,22 @@
       <input type="submit" value="Login">
       <input class="register-btn" type="button" value="Register">
       <input class="google-signin" type="button" value="Sign In With Google">
+      <input class="facebook-signin" type="button" value="Sign In With Facebook">
     </form>
   </div>
 
   <div class="main-page hidden">
-    <h1></h1>
-    <p><input class="logout-btn" type="button" value="Logout"></p>
+    <div class="header">
+      <h1></h1>
+      <p><input class="logout-btn" type="button" value="Logout"></p>
+    </div>
+
+    <form>
+      <input class="todo-input" type="text" placeholder="Todo">
+      <input type="submit" value="Add Todo">
+    </form>
+
+    <ul class="todo-list"></ul>
   </div>
 
   <script src="js/firebase.js"></script>

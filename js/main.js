@@ -12,8 +12,18 @@ firebase.initializeApp({
 firebase.auth().onAuthStateChanged(() => {
   if (firebase.auth().currentUser !== null) {
     var currentUser = firebase.auth().currentUser;
+
+    $.ajax({
+      url: `https://mjd-fb-todo.firebaseio.com/todo/${currentUser.uid}.json`
+    })
+    .then(userTodoList => {
+      for (var key in userTodoList) {
+        $('.todo-list').append(`<li>${userTodoList[key].todo}</li>`)
+      };
+    });
+
     if (currentUser.providerData[0].providerId !== 'password') {
-      $('.main-page').append(`<p><img class="profile-img" src="${currentUser.providerData[0].photoURL}"></p>`)
+      $('.main-page .header').append(`<p><img class="profile-img" src="${currentUser.providerData[0].photoURL}"></p>`)
     }
     $('.main-page').removeClass('hidden');
     $('.login-page').addClass('hidden');
@@ -25,7 +35,7 @@ firebase.auth().onAuthStateChanged(() => {
 });
 
 // Login functionality
-$('form').submit(function(evt) {
+$('login-page form').submit(function(evt) {
   // Prevent form submission
   evt.preventDefault();
 
@@ -40,6 +50,7 @@ $('form').submit(function(evt) {
   .catch(({code, message}) => {
     var errorMsg = `${code}: ${message}`;
     console.log(errorMsg);
+    alert(errorMsg);
   });
 });
 
@@ -57,6 +68,7 @@ $('.register-btn').click(() => {
   .catch(({code, message}) => {
     var errorMsg = `${code}: ${message}`;
     console.log(errorMsg);
+    alert(errorMsg);
   });
 })
 
@@ -87,6 +99,37 @@ $('.google-signin').click(() => {
     var email = error.email;
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
-    // ...
   });
+});
+
+
+// Function for todo submission
+$('.main-page form').submit((evt) => {
+
+  evt.preventDefault();
+
+  // Get the users todo task and current user UID
+  var task = $('.todo-input').val();
+  var uid = firebase.auth().currentUser.uid;
+  $('.todo-input').val('');
+
+  $.ajax({
+    type: 'POST',
+    url: `https://mjd-fb-todo.firebaseio.com/todo/${uid}.json`,
+    data: JSON.stringify({ todo: task, uid: uid })
+  })
+  .then((res) => {
+    if (res.name) {
+      $.ajax({
+        url: `https://mjd-fb-todo.firebaseio.com/todo/${uid}.json`
+      })
+      .then(userTodoList => {
+        $('.todo-list').html('');
+        for (var key in userTodoList) {
+          $('.todo-list').append(`<li>${userTodoList[key].todo}</li>`)
+        };
+      });
+    }
+  });
+
 });
