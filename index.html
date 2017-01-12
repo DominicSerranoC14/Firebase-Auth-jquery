@@ -7,7 +7,21 @@
 
 <body>
 
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <div class="login-page">
+    <form class="login-form">
+      <label for="username">Username:</label>
+      <input type="username" name="username" value="">
+      <label for="password">Password:</label>
+      <input type="password" name="password" value="">
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <div class="main-page hidden">
+    <h1></h1>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
