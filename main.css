@@ -11,11 +11,24 @@ body {
   border: solid .5rem black;
 }
 
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+}
+
 input, label {
   margin: .5rem;
   padding: 0 2rem;
+  width: 100px;
 }
 
 .hidden {
   display: none;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
 }

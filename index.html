@@ -7,20 +7,24 @@
 
 <body>
 
-  <div class="login-page">
+  <div class="login-page hidden">
     <form class="login-form">
       <label for="username">Username:</label>
       <input type="username" name="username" value="">
       <label for="password">Password:</label>
       <input type="password" name="password" value="">
       <input type="submit" value="Login">
+      <input class="register-btn" type="button" value="Register">
+      <input class="google-signin" type="button" value="Sign In With Google">
     </form>
   </div>
 
   <div class="main-page hidden">
     <h1></h1>
+    <p><input class="logout-btn" type="button" value="Logout"></p>
   </div>
 
+  <script src="js/firebase.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/main.js"></script>
 </body>
