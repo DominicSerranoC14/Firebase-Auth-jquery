@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  border: solid .2rem black;
+  text-align: center;
+}
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border: solid .2rem black;
+  text-align: center;
+}
+
+input, label {
+  margin: .5rem;
+  padding: 0 2rem;
+  max-width: 200px;
+}
+
+.hidden {
+  display: none;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Firebase-Auth-jquery",
+  "homepage": "https://github.com/DominicSerranoC14/Firebase-Auth-jquery",
+  "authors": [
+    "Dominic Serrano <dmsrojo@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "firebase": "^3.6.5"
+  }
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="login-page hidden">
+    <form class="login-form">
+      <label for="username">Username:</label>
+      <input type="username" name="username" value="">
+      <label for="password">Password:</label>
+      <input type="password" name="password" value="">
+      <input type="submit" value="Login">
+      <input class="register-btn" type="button" value="Register">
+      <input class="google-signin" type="button" value="Sign In With Google">
+    </form>
+  </div>
+
+  <div class="main-page hidden">
+    <div class="header">
+      <h1></h1>
+      <p><input class="logout-btn" type="button" value="Logout"></p>
+    </div>
+
+    <form>
+      <input class="todo-input" type="text" placeholder="Todo">
+      <input type="submit" value="Add Todo">
+    </form>
+
+    <ul class="todo-list"></ul>
+  </div>
+
+  <script src="deps/firebase.js"></script>
+  <script src="deps/jquery.min.js"></script>
+
+  <script src="js/main.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/register.js"></script>
+  <script src="js/todo.js"></script>
+  <script src="js/google.js"></script>
+</body>
+</html>
